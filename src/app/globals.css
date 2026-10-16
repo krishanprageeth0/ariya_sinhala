@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F7F2E7;
+  --foreground: #3F3B29;
+  --gold-primary: #B49A55;
+  --gold-light: #D3BD86;
+  --gold-dark: #8C7134;
+  --kandyan-green: #1F3E2F;
+  --kandyan-green-light: #2F5A45;
+  --maroon: #963A30;
+  --ivory: #FFF9EF;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  min-height: 100vh;
+  background-color: #F7F2E7;
+  color: #3F3B29;
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom gold scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F2E7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D3BD86;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B49A55;
+}
+
+/* Gold particle animation */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(100vh) scale(0.6);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-20vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.gold-particle {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(211, 189, 134, 0.8) 0%, rgba(180, 154, 85, 0) 70%);
+  animation: floatParticle linear infinite;
+  z-index: 1;
+}
